@@ -38,7 +38,8 @@ When /I add a new movie/ do |movie|
 end
 
 Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |arg1, arg2|
-  movie[arg1].director.should be arg2
+  m = Movie.find_by_title(arg1)
+  m.director.should == arg2
   #pending # express the regexp above with the code you wish you had
 end
 
